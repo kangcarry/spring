@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-@MyComponent(value = "guestDao")
+@Component(value = "guestDao")
 public class GuestDaoImpl implements GuestDao {
 	private DataSource dataSource;
 	
@@ -16,7 +16,7 @@ public class GuestDaoImpl implements GuestDao {
 	public DataSource getDataSource() {
 		return dataSource;
 	}
-	@MyAutoWire(value = "dataSource")
+	@AutoWire(value = "dataSource")
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}

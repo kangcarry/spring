@@ -1,7 +1,7 @@
 package com.itwill.guest;
 
 import java.util.List;
-@MyComponent("guestService")
+@Component("guestService")
 public class GuestServiceImpl implements GuestService {
 	private GuestDao guestDao;
 	public GuestServiceImpl() {
@@ -11,7 +11,7 @@ public class GuestServiceImpl implements GuestService {
 	public GuestDao getGuestDao() {
 		return guestDao;
 	}
-	@MyAutoWire(value = "guestDao")
+	@AutoWire(value = "guestDao")
 	public void setGuestDao(GuestDao guestDao) {
 		this.guestDao = guestDao;
 	}
