@@ -2,10 +2,11 @@ package com.itwill.user;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
 
+@Repository("userDao")
 public class UserDaoImpl implements UserDao {
 	
-
 	public UserDaoImpl() {
 		System.out.println("#### UserDaoImpl() : 디폴트생성자 호출  ");
 	}
