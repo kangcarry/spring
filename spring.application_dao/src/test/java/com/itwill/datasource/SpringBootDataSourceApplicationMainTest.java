@@ -13,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 class SpringBootDataSourceApplicationMainTest {
 	@Autowired
 	DataSource dataSource;
+	
 	@Test
 	void contextLoad() {
 		

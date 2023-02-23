@@ -1,4 +1,4 @@
-package com.itwill.user;
+package com.itwill.user.dao.jdbc;
 
 import java.util.List;
 public interface UserService{

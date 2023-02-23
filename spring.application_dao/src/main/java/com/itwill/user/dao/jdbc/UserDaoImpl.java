@@ -1,4 +1,4 @@
-package com.itwill.user;
+package com.itwill.user.dao.jdbc;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,11 +14,11 @@ import org.springframework.stereotype.Repository;
  사용자관리에서 데이타베이스와의 작업을 전담하는 클래스
  USERINFO 테이블에 사용자를 추가,삭제,검색,수정등의 작업을한다.
  */
-
+@Repository
 public class UserDaoImpl implements UserDao {
 	/*
 	 * - DataSource객체 : Connection을 반환해주는객체
-	 * - 톰캣에서제공하는 DataSource 객체사용
+	 * - SpringBoot프로젝트 클래스패쓰에 존재하는 DataSource구현 객체사용
 	 */
 	@Autowired
 	private DataSource dataSource;
