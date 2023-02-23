@@ -24,19 +24,19 @@ class GuestDaoImpljdbcTempleteTest {
 		System.out.println(guestDao.insertGuest(guest));
 	}
 	@Test
-	@Disabled
+	@Disabled //테스트 실패 의문
 	void testSelectByNo() throws Exception {
 		System.out.println(guestDao.selectByNo(2));
 	}
 	@Disabled
 	@Test
-	void testDeleteGuest() {
-		fail("Not yet implemented");
+	void testDeleteGuest() throws Exception {
+		System.out.println(guestDao.deleteGuest(0));
 	}
-	@Disabled
 	@Test
-	void testUpdateGuest() {
-		fail("Not yet implemented");
+	void testUpdateGuest() throws Exception {
+		Guest updateGuest = new Guest(5, "업뎃", null, "update@gmail.com", "update.com", "업데이트", "내용");
+		System.out.println(guestDao.updateGuest(updateGuest));
 	}
 
 }

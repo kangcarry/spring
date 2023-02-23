@@ -46,13 +46,20 @@ public class GuestDaoImpljdbcTemplete implements GuestDao {
 	@Override
 	public int deleteGuest(int no) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return jdbcTemplate.update(GuestSQL.GUEST_DELETE,new Object[] {no});
 	}
+	
+	
 	
 	@Override
 	public int updateGuest(Guest guest) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return jdbcTemplate.update(GuestSQL.GUEST_UPDATE,guest.getName(),
+														 guest.getEmail(),
+														 guest.getHomepage(),
+														 guest.getTitle(),
+														 guest.getContent(),
+														 guest.getNo());
 	}
 	
 	
