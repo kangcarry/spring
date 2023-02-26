@@ -2,6 +2,8 @@ package com.itwill.guest.dao.mybatis;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Date;
+
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,20 +15,22 @@ import org.springframework.transaction.annotation.Transactional;
 @SpringBootTest
 class GuestDaoImplMybatisTest {
 	@Autowired
-	private GuestDao guestDao;
+	GuestDao guestDao;
 	
 	@Test
 	void testSelectAll() throws Exception {
 		System.out.println(guestDao.selectAll());
 	}
-	@Disabled
-	void testSelectByNo() {
-		fail("Not yet implemented");
+	@Disabled //안됨
+	void testSelectByNo() throws Exception {
+		System.out.println(guestDao.selectByNo(211));
 	}
-	@Disabled
-	void testInsertGuest() {
-		fail("Not yet implemented");
+	@Test
+	void testInsertGuest() throws Exception {
+		Guest guest = new Guest(0, "test01", null, "test01", "test01", "hji", "hello");
+		System.out.println(guestDao.insertGuest(guest));
 	}
+		
 	@Disabled
 	void testUpdateGuest() {
 		fail("Not yet implemented");

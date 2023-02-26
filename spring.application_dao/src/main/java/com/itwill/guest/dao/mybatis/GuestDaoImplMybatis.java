@@ -20,23 +20,21 @@ import com.itwill.guest.dao.jdbc.GuestSQL;
 @Repository
 public class GuestDaoImplMybatis implements GuestDao {
 	@Autowired
-	SqlSession sqlSession;
+	private SqlSession sqlSession;
 	
 	@Override
 	public List<Guest> selectAll() {
-		return sqlSession.selectList("guestSelectAll");
+		return sqlSession.selectList("selectAll");
 	}
 
 	@Override
 	public Guest selectByNo(int no) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectOne("selectByNo");
 	}
 
 	@Override
 	public int insertGuest(Guest guest) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.insert("insertGuest",guest);
 	}
 
 	@Override
