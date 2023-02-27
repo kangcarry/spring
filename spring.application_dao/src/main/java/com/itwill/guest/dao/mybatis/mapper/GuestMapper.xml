@@ -6,10 +6,12 @@
 		select guest_no,guest_name,guest_date,guest_email,guest_homepage from guest
 	</select> 
 	-->
+	<!--  
 	<select id="selectByNo" parameterType="int" 
 							resultType="com.itwill.guest.dao.mybatis.Guest">
 		select guest_no,guest_name,guest_date,guest_email,guest_homepage from guest where guest_no = #{no}
 	</select>
+	-->
 	<insert id="insertGuest" parameterType="com.itwill.guest.dao.mybatis.Guest" >
 		insert into guest values (#{no},#{name},#{date},#{email},#{homepage},#{title},#{content})
 	</insert>

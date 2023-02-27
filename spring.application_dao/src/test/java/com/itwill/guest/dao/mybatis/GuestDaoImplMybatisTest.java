@@ -21,7 +21,7 @@ class GuestDaoImplMybatisTest {
 	void testSelectAll() throws Exception {
 		System.out.println(guestDao.selectAll());
 	}
-	@Disabled //안됨
+	@Test //안됨
 	void testSelectByNo() throws Exception {
 		System.out.println(guestDao.selectByNo(211));
 	}

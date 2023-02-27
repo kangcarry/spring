@@ -19,13 +19,13 @@ GUEST_CONTENT  NOT NULL VARCHAR2(4000)
 @NoArgsConstructor
 @AllArgsConstructor
 public class Guest {
-	private int no;
-	private String name;
-	private String date;
-	private String email;
-	private String homepage;
-	private String title;
-	private String content;
+	private int guestNo;
+	private String guestName;
+	private String guestDate;
+	private String guestEmail;
+	private String guestHomepage;
+	private String guestTitle;
+	private String guestContent;
 
 	}
 

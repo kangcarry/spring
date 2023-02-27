@@ -1,40 +1,41 @@
 package com.mybatis3.dao.mapper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Many;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 
+import com.mybatis3.domain.Course;
 import com.mybatis3.domain.Tutor;
 @Mapper
 public interface TutorMapper {
-	
 	/*
-	 *<resultMap id="tutorWithCoursesResultMap" 
-			   type="com.mybatis3.domain.Tutor" 
-			   autoMapping="true">
-		<result column="TUTOR_NAME" property="name"/>
-		<collection property="courses" 
-					javaType="java.util.List"
-					ofType="com.mybatis3.domain.Course" 
-					autoMapping="true">
-					<result column="COURSE_NAME" property="name"/>	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
-		</collection>			
-	</resultMap>
+	<select id="findTutorByIdWithCourses" 
+			parameterType="java.lang.Integer"
+			resultMap="tutorWithCoursesResultMap">
+			select t.tutor_id,t.name as tutor_name,email,
+			 		course_id,c.name as course_name,description,
+			 		start_date,end_date
+			from tutors t  
+			join courses c 
+			on t.tutor_id = c.tutor_id 
+			where t.tutor_id=#{tutorId}
+	 </select>
 	 */
-	
-	@Results(id = "tutorWithCoursesResultMap",
-				value= {
-			@Result(column="tutor_id",property="tutorId"),
-			@Result(column="tutor_name",property="name"),
-			@Result(column="email",property="email"),
-			@Result(column="course_id",
-					property="courses",
-					javaType = List.class,
-					many=@Many(select="com.mybatis3.domain.Course.findCourseById"))
-	})
+	@ResultMap("tutorWithCoursesResultMap")
+	@Select("select t.tutor_id,t.name as tutor_name,email,"
+			+ "			 		course_id,c.name as course_name,description,"
+			+ "			 		start_date,end_date"
+			+ "			from tutors t  "
+			+ "			join courses c "
+			+ "			on t.tutor_id = c.tutor_id "
+			+ "			where t.tutor_id=#{tutorId}")
 	public Tutor findTutorByIdWithCourses(Integer tutorId);
+	
+	
 }

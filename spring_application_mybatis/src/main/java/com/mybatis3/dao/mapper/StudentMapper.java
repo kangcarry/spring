@@ -5,7 +5,9 @@ import java.util.List;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.ResultMap;
+import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectKey;
 
@@ -47,7 +49,7 @@ public interface StudentMapper {
 	public int updateStudentById(Student student);
 	public int deleteStudentById(Integer studId);
 	
-
+	
 	public Student findStudentByIdWithAddress(Integer studId);
 	
 	
@@ -74,3 +76,4 @@ public interface StudentMapper {
 			+ "		on ce.course_id=c.course_id where s.stud_id=#{studId}")
 	public Student findStudentByIdWithCourses(@Param("studId") Integer studId);
 }
+

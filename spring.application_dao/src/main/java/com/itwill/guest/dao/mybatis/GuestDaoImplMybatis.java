@@ -25,21 +25,20 @@ public class GuestDaoImplMybatis implements GuestDao {
 
 	
 	@Autowired
-	private SqlSession sqlSession;
+	private GuestMapper guestMapper;
 	
 	@Override
 	public List<Guest> selectAll() {
-		return sqlSession.selectList("selectAll");
+		return guestMapper.selectAll();
 	}
 
 	@Override
 	public Guest selectByNo(int no) throws Exception {
-		return sqlSession.selectOne("selectByNo");
+		return guestMapper.selectByNo(no);
 	}
-
 	@Override
 	public int insertGuest(Guest guest) throws Exception {
-		return sqlSession.insert("insertGuest",guest);
+		return 0;
 	}
 
 	@Override
