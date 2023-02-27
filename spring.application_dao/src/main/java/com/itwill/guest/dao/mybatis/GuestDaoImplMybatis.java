@@ -9,6 +9,7 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import org.apache.ibatis.session.SqlSession;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -16,9 +17,13 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.itwill.guest.dao.jdbc.GuestSQL;
+import com.itwill.guest.dao.mybatis.mapper.GuestMapper;
 
 @Repository
+@MapperScan(basePackages = "com.itwill.guest.dao.mybatis.mapper" )
 public class GuestDaoImplMybatis implements GuestDao {
+
+	
 	@Autowired
 	private SqlSession sqlSession;
 	

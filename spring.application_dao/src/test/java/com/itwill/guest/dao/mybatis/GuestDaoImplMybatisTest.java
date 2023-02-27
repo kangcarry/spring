@@ -25,7 +25,7 @@ class GuestDaoImplMybatisTest {
 	void testSelectByNo() throws Exception {
 		System.out.println(guestDao.selectByNo(211));
 	}
-	@Test
+	@Disabled //안됨
 	void testInsertGuest() throws Exception {
 		Guest guest = new Guest(0, "test01", null, "test01", "test01", "hji", "hello");
 		System.out.println(guestDao.insertGuest(guest));

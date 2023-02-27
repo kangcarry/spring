@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.itwill.guest.dao.mybatis.mapper.GuestMapper">
-
+	<!-- 
 	<select id="selectAll" resultType="com.itwill.guest.dao.mybatis.Guest">
 		select guest_no,guest_name,guest_date,guest_email,guest_homepage from guest
-	</select>
+	</select> 
+	-->
 	<select id="selectByNo" parameterType="int" 
 							resultType="com.itwill.guest.dao.mybatis.Guest">
 		select guest_no,guest_name,guest_date,guest_email,guest_homepage from guest where guest_no = #{no}
 	</select>
 	<insert id="insertGuest" parameterType="com.itwill.guest.dao.mybatis.Guest" >
-		insert into guest values (guest_no_seq.nextval,#{name},#{date},#{email},#{homepage},#{title},#{content})
+		insert into guest values (#{no},#{name},#{date},#{email},#{homepage},#{title},#{content})
 	</insert>
 	
 </mapper>
