@@ -3,11 +3,16 @@ package com.itwill.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.View;
+import org.springframework.web.servlet.view.AbstractView;
+import org.springframework.web.servlet.view.BeanNameViewResolver;
 import org.springframework.web.servlet.view.InternalResourceView;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.itwill.view.XMLView;
@@ -18,7 +23,7 @@ public class ResponseController {
 	/*
 	 * fowading view객체반환
 	 */
-	@RequestMapping("/response_forward_view_object.do")
+	@RequestMapping("/response_forward_view_object")
 	public View response_forward_view_object() {
 		InternalResourceView internalResourceView=new InternalResourceView();
 		internalResourceView.setUrl("/WEB-INF/views/response_forward_view_object.jsp");
@@ -40,7 +45,7 @@ public class ResponseController {
 	/*
 	 * fowading view name(String)반환
 	 */
-	@RequestMapping("/response_forward_view_name.do")
+	@RequestMapping("/response_forward_view_name")
 	public String response_forward_view_name() {
 		/* 
 		  0 . Controller 가 view name(String)을 반환
@@ -48,26 +53,32 @@ public class ResponseController {
 		  
 		  2 . 현재생성된  ViewResolver객체는 InternalResourceViewResolver 객체만 존재하므로 
 		  	  InternalResourceViewResolver객체에 Controller로부터 반환받은 view name(String)을 주고 View객체를 요청한다.
-		  3 . InternalResourceViewResolver 객체는 view name 이 forward: 로시작하므로(redirect:로시작하지않으면)  InternalResourceView 객체를 생성하고 view name을 url로 설정한후반환한다.
+		  3 . InternalResourceViewResolver 객체는 view name 이 forward: 로시작하므로(redirect:로시작하지않으면)  
+		  		InternalResourceView 객체를 생성하고 view name을 url로 설정한후반환한다.
 		      (url:/WEB-INF/views/response_view_name.jsp)를 반환
 		  4 . DispatcherServlet객체는 반환받은 InternalResourceView 객체의 renderMergedOutputModel()  메쏘드호출한다: 	
 			  (/WEB-INF/views/response_view_name.jsp 로 forward가이루어진다)	
 			  
-		  << mcv-config-view-resolver.xml >>
-		  <!-- InternalResourceViewResolver -->
-		 <bean 	id="myInternalResourceViewResolver" 
-			class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-			<property name="order" value="1"/>
-			<property name="prefix" value="/WEB-INF/views/"/>
-			<property name="suffix" value=".jsp"/>
-		</bean>		
+			*********WebConfig.java**********
+		  1. WebConfig.java파일에 InternalResourceViewResolver등록
+		  	
+		  
+			@Bean
+			public InternalResourceViewResolver internalResourceViewResolver() {
+				InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
+				internalResourceViewResolver.setPrefix("WEB-INF/views/");
+				internalResourceViewResolver.setSuffix(".jsp");
+				internalResourceViewResolver.setOrder(1);
+				return internalResourceViewResolver;
+			}
+	
 		
 		< Controller반환 String >>
 			1.forward:/WEB-INF/views/response_view_name.jsp ==> prefix,suffix설정적용안됨
 		    2.response_forward_view_name   					==> prefix,suffix설정적용됨
 		    3.redirect:xxx.jsp     							==> prefix,suffix설정적용안됨
 		 */
-		//return "forward:/WEB-INF/views/response_forward_view_name.jsp";
+//		return "forward:/WEB-INF/views/response_forward_view_name.jsp";
 		return "response_forward_view_name";
 	} 
 	
@@ -75,7 +86,7 @@ public class ResponseController {
 	/*
 	 * redirect view객체반환
 	 */
-	@RequestMapping("/response_redirect_view_object.do")
+	@RequestMapping("/response_redirect_view_object")
 	public View response_redirect_view_object() {
 		RedirectView redirectView=new RedirectView();
 		redirectView.setUrl("response_redirect_view_object.jsp");
@@ -96,7 +107,7 @@ public class ResponseController {
 	/*
 	 * redirect view name(String)반환
 	 */
-	@RequestMapping("/response_redirect_view_name.do")
+	@RequestMapping("/response_redirect_view_name")
 	public String response_redirect_view_name() {
 		/* 
 		  0 . Controller 가 view name(String)반환
@@ -122,7 +133,7 @@ public class ResponseController {
 	/*
 	 * xml출력 view object반환
 	 */
-	@RequestMapping("/response_xml_view_object.do")
+	@RequestMapping("/response_xml_view_object")
 	public View response_xml_view_object(Model model) {
 		XMLView xmlView=new XMLView();
 		/*
@@ -148,7 +159,7 @@ public class ResponseController {
 	/*
 	 * xml출력 view name반환
 	 */
-	@RequestMapping("/response_xml_view_name.do")
+	@RequestMapping("/response_xml_view_name")
 	public String response_xml_view_name(Model model) {
 		List<String> friendList=new ArrayList<String>();
 		friendList.add("김수미");
@@ -169,22 +180,30 @@ public class ResponseController {
 		  6 . DispatcherServlet객체는 반환받은 View객체(XMLView)객체의 renderMergedOutputModel() 메쏘드호출한다: 	
 		  7 . XML출력 	  
 			  
-		  << mcv-config-view-resolver.xml >>
-		 	<!-- View 객체등록-->
-			<bean id="xmlView" class="com.itwill.view.XMLView" />
+		  
+		 	/********View 객체등록****************************
+			@Component("xmlView")
+			public class XMLView extends AbstractView {}
 			
-			<!-- ViewResolver객체등록 -->
-			<!-- 1. -->
-			<bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
-				<property name="order" value="0"/>
-			</bean>
-			<!-- 2.InternalResourceViewResolver 등록[빈으로 정의하지않아도 기본생성됨]-->
-			<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-				<property name="order" value="1"/>
-				<!-- InternalResouceView객체생성후 DispatcherServlet에 반환시 forward path에 prefix,suffix -->
-				<property name="prefix" value="/WEB-INF/views/"/>
-				<property name="suffix" value=".jsp"></property>
-			</bean>
+			/*******ViewResolver객체등록**********************
+			1. WebConfig.java에 BeanNameViewResolver를 등록한다.
+				@Bean
+				public BeanNameViewResolver beanNameViewResolver() {
+					BeanNameViewResolver beanNameViewResolver = new BeanNameViewResolver();
+					beanNameViewResolver.setOrder(0);
+					return beanNameViewResolver;
+				}
+			
+			2.InternalResourceViewResolver 등록[빈으로 정의하지않아도 기본생성됨]
+			설정을 변경하려면 WebConfig.java파일에 InternalResourceViewResolver등록
+				@Bean
+				public InternalResourceViewResolver internalResourceViewResolver() {
+					InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
+					internalResourceViewResolver.setPrefix("WEB-INF/views/");
+					internalResourceViewResolver.setSuffix(".jsp");
+					internalResourceViewResolver.setOrder(1);
+					return internalResourceViewResolver;
+				}
 			  
 		*/
 		
