@@ -3,7 +3,8 @@
 <%@taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt"%>  
 <%
 	request.setAttribute("id", "guard");
-
+	request.setAttribute("pass", "1111");
+	request.setAttribute("name", "가아드");
 %>
 <%-- 1.Locale객체설정(JSTL)--%>  
 <fmt:setLocale value="${pageContext.request.locale.language}"/>
@@ -19,20 +20,23 @@
 <h1>JSTL I18N[Internationalization]국제화</h1><hr/>
 <ol>
 	<li>
-		<fmt:message key="user.existed.exception" >
+		<fmt:message key="user.existed.exception">
+			<fmt:param value="${id}"/>
+		</fmt:message>
+		
+	</li>
+	<li>
+		<fmt:message key="user.notfound.exception">
 			<fmt:param value="${id}"/>
 		</fmt:message>
 	</li>
 	<li>
-		<fmt:message key="user.notfound.exception">
-			<fmt:param value="${'tomato'}"/>
-		</fmt:message>
-	</li>
-	<li>
 		<fmt:message key="password.mismatch.exception">
-			<fmt:param value="${'김경호' }"/>
-			<fmt:param value="${'김경미' }"/>
+			<fmt:param value="${id}"/>
+			<fmt:param value="${pass}"/>
+			<fmt:param value="${name}"/>
 		</fmt:message>
+		
 	</li>
 </ol>
 
