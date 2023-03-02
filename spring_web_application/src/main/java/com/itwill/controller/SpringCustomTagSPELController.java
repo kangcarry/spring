@@ -4,16 +4,16 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.itwill.dto.Guest;
 
 @Controller
 public class SpringCustomTagSPELController {
-	
+	@GetMapping("/jstl_fmt_i18n")
 	public String jstl_fmt_i18n() {
-		return "";
-		
+		return "jstl_fmt_i18n";
 	}
 	
 	public String spring_customtag_spel(HttpServletRequest request) {
