@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -33,23 +34,27 @@ public class UserController {
 	public String user_main() {
 		return "user_main";
 	}
-	public String user_write_form() {
-		String forward_path = "";
+	@RequestMapping("user_write_form")
+	public String user_write_form() throws Exception {
+		String forward_path = "user_write_form";
 		return forward_path;
 	}
-
-	public String user_write_action_post() throws Exception {
-		String forward_path = "";
+	
+	@PostMapping("user_write_action_post")
+	public String user_write_action_post(User fuser) throws Exception {
+		userService.create(fuser);
+		String forward_path = "user_view";
 		return forward_path;
 	}
-
+	@PostMapping("user_login_form")
 	public String user_login_form() {
-		String forward_path = "";
+		String forward_path = "user_login_form";
 		return forward_path;
 	}
-
-	public String user_login_action_post() throws Exception {
-		String forwardPath = "";
+	@PostMapping("user_login_form")
+	public String user_login_action_post(User fuser) throws Exception {
+		userService.login(fuser.getUserId(), fuser.getPassword());
+		String forwardPath = "user_main";
 		return forwardPath;
 	}
 	
