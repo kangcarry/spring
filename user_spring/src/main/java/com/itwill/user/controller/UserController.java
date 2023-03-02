@@ -46,22 +46,45 @@ public class UserController {
 		String forward_path = "user_view";
 		return forward_path;
 	}
-	@PostMapping("user_login_form")
+	@RequestMapping("user_login_form")
 	public String user_login_form() {
 		String forward_path = "user_login_form";
 		return forward_path;
 	}
-	@PostMapping("user_login_form")
-	public String user_login_action_post(User fuser) throws Exception {
-		userService.login(fuser.getUserId(), fuser.getPassword());
-		String forwardPath = "user_main";
+	@PostMapping("user_login_action")
+	public String user_login_action_post(User fuser,HttpServletRequest request) throws Exception {
+		int loginNo = userService.login(fuser.getUserId(), fuser.getPassword());
+		String forwardPath = "";
+		HttpSession session = request.getSession();
+		String msg1="아이디가 불일치합니다";
+		String msg2="비밀번호가 불일치합니다";
+		if(loginNo==0) {
+			request.setAttribute("msg1",msg1);
+			forwardPath="user_login_form";
+		}else if(loginNo==1) {
+			request.setAttribute("msg2",msg2);
+			forwardPath="user_login_form";
+		}else if(loginNo==2) {
+			session.setAttribute("sUserId", fuser.getUserId());
+			forwardPath="user_main";
+		}
+		
 		return forwardPath;
 	}
 	
-
-	public String user_view() throws Exception {
+	@RequestMapping("user_view")
+	public String user_view(HttpServletRequest request,Model model) throws Exception {
 		/************** login check **************/
-		String forwardPath = "";
+		HttpSession session = request.getSession();
+		String forwardPath ="";
+		User loginUser = null;
+		if(session.getAttribute("sUserId")==null) {
+			forwardPath = "user_login";
+		}else {
+			loginUser = userService.findUser((String)session.getAttribute("sUserId"));
+			model.addAttribute(loginUser);
+			forwardPath = "user_view";
+		}
 		return forwardPath;
 	}
 
