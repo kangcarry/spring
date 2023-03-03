@@ -19,7 +19,7 @@ User loginUser=(User)request.getAttribute("loginUser");
 <link rel=stylesheet href="css/user.css" type="text/css">
 <script type="text/javascript">
 	function userModify() {
-		document.f.action = "user_modify_action.do";
+		document.f.action = "user_modify_action";
 		document.f.submit();
 	}
 
