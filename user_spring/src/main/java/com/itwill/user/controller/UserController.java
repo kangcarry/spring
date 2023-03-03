@@ -53,7 +53,7 @@ public class UserController {
 		String forward_path = "";
 		try {
 			userService.create(user);
-			forward_path = "redirect:user_view";
+			forward_path = "redirect:user_login_form";
 		}catch(ExistedUserException e) {
 			model.addAttribute("msg",e.getMessage());
 //			model.addAttribute("fuser",user);
@@ -127,22 +127,26 @@ public class UserController {
 		return forwardPath;
 	}
 
+	@PostMapping("user_remove_action")
 	public String user_remove_action_post(HttpSession session) throws Exception {
 		/************** login check **************/
-		userService.remove(null);
+		String sUserId = (String)session.getAttribute("sUserId");
+		userService.remove(sUserId);
 		session.invalidate();
-		String forwardPath = "";
+		String forwardPath = "user_main";
 		return forwardPath;
 	}
-
+	
+	@RequestMapping("user_logout_action")
 	public String user_logout_action(HttpSession session) {
 		/************** login check **************/
-		String forwardPath = "";
+		session.invalidate();
+		String forwardPath = "user_main";
 		return forwardPath;
 	}
 
 /******************GET방식요청시 guest_main redirection*******************/
-	@GetMapping({"user_write_action"})
+	@GetMapping({"user_write_action","user_modify_action"})
 	public String user_get() {
 		String forwardPath = "user_main";
 		return forwardPath;
