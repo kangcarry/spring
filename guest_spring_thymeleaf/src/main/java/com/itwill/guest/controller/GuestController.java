@@ -24,6 +24,11 @@ public class GuestController {
 	public GuestController() {
 		System.out.println(">>>GuestController");
 	}
+	@RequestMapping("/thymeleaf_test")
+	public String thymeleaf_test() {
+		String forwardPath = "thymeleaf_test";
+		return forwardPath;
+	}
 	@RequestMapping("/guest_main")
 	public String guest_main() {
 		String forwardPath = "guest_main";

@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>방명록 관리</title>
+<title>사용자 관리</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel=stylesheet href="css/styles.css" type="text/css">
-<link rel=stylesheet href="css/guest.css" type="text/css">
-<link rel="icon" href="image/favicon-32x32.png">
+<link rel=stylesheet href="css/user.css" type="text/css">
 <style type="text/css" media="screen">
 </style>
 </head>
@@ -14,23 +13,22 @@
 	<!-- container start-->
 	<div id="container">
 		<!-- header start -->
-		<div id="header" th:include="include_common_top::include_common_top">
-			<!-- include_common_top.html start-->
-			
+		<div id="header" th:include="include_common_top">
+			<!-- include_common_top.jsp start-->
 
 			<!-- include_common_top.jsp end-->
 		</div>
 		<!-- header end -->
 		<!-- navigation start-->
-		<div id="navigation" th:include="include_common_left::include_common_left">
-			<!-- include_common_left.html start-->
-			<!-- include_common_left.html end-->
+		<div id="navigation" th:include="include_common_left">
+			<!-- include_common_left.jsp start-->
+			<!-- include_common_left.jsp end-->
 		</div>
 		<!-- navigation end-->
 		<!-- wrapper start -->
 		<div id="wrapper">
 			<!-- content start -->
-			<!-- include_content.html start-->
+			<!-- include_content.jsp start-->
 
 			<div id="content">
 				<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
@@ -50,9 +48,9 @@
 			<!-- content end -->
 		</div>
 		<!--wrapper end-->
-		<div id="footer" th:include="include_common_bottom::include_common_bottom">
-			<!-- include_common_bottom.html start-->
-			<!-- include_common_bottom.html end-->
+		<div id="footer" th:include="include_common_bottom">
+			<!-- include_common_bottom.jsp start-->
+			<!-- include_common_bottom.jsp end-->
 		</div>
 	</div>
 	<!--container end-->

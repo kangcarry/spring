@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<p>
+		<strong>메뉴</strong>
+	</p>
+	
+	<ul th:if="${session.sUserId!=null}">
+		<li><a href='' th:text="${session.sUserId}+'님'"></a></li>
+		<li><a href='user_view'>내정보</a></li>
+		<li><a href="user_logout_action">로그아웃</a></li>
+	</ul>
+	
+	<ul th:if="${session.sUserId==null}">
+		<li><a href="user_login_form">로그인</a></li>
+		<li><a href="user_write_form">회원가입</a></li>
+	</ul>
+
+	
