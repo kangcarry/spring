@@ -59,18 +59,31 @@
 	
 	
 	document.write("-------------studentObject2출력--------------<br>");
-	
-	/********************Array[JSON]**************************
+	document.write(studentObject2.id+"<br>")
+	document.write(studentObject2.name+"<br>")
+	document.write(studentObject2.weight+"<br>")
+	studentObject2.setWeight(80.55);
+	document.write(studentObject2.weight+"<br>")
+	document.write(studentObject2.married+"<br>")
+	document.write(studentObject2.age+"<br>")
+	document.write(studentObject2.address+"<br>")
+	document.write(studentObject2.toString()+"<br>")
+	/********************Array[JSON]**************************/
 	let idArray=['aaa','bbb','ccc'];
 	let nameArray=['kim','lee','park'];
 	let ageArray=[34,23,45];
 	let studentObjectArray=[studentObject1,studentObject2];
-	*******************Array[생성자함수]*******************/
+	/*******************Array[생성자함수]*******************/
+	//let studentObjectArray[{},{}];
 	
 	document.write('--------------------Array출력----------------------<br>');
-	
+	for(let i=0;i<idArray.length;i++){
+		document.write(idArray[i]+"<br>");
+	}
 	document.write('--------------------Array출력[Object]----------------------<br>');
-	
+	for(let i=0;studentObjectArray.length;i++){
+		document.write(studentObjectArray[i].toString()+"<br>");
+	}
 </script>
 </body>
 </html>
