@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>javascript operator</h1><hr>
+<script type="text/javascript">
+	
+	
+	
+	let str1='KIM';
+	let str2=new String('KIM');
+	let str3=new String('KIM');
+	let str4=str3
+	console.log(typeof str1);
+	console.log(typeof str2);
+	if(str1 == str2){
+		console.log("str1 str2 값이일치 ==");
+	}
+	if(str1 === str2){
+		console.log("str1 str2 참조변수동일 ===");
+	}else{
+		console.log("str1 str2 참조변수동일안함 !==");
+	}
+	if(str2 === str3){
+		console.log("str2 str3 참조변수동일 ===");
+	}else{
+		console.log("str2 str3 참조변수동일안함 !==");
+	}
+	if(str3 === str4){
+		console.log("str3 str4 참조변수동일 ===");
+	}else{
+		console.log("str3 str4 참조변수동일안함 !==");
+	}
+	console.log('-------3항연산자------');
+	let a=12;
+	let b=20;
+	// 조건? 참실행 : 거짓실행
+	let result1 = (a>b)? a:b;
+	console.log("result1",result1);
+	let result2;
+	(a>b) ? result2=a:result2=b;
+	console.log("result2",result2);
+	
+	let level=67;
+	let msg = level>0 ? '양수':'음수';
+	console.log('msg:',msg);
+	
+	
+	console.log('-------------논리형타입으로자동변경------------');
+	//falsy한값
+	let zeroNumber= 0;
+	let nullValue=null;
+	let emptyStr='';
+	let undefinedVar;
+	if(!zeroNumber){
+		console.log(zeroNumber,"--->",false);
+	}
+	if(!nullValue){
+		console.log(nullValue,"--->",false);
+	}
+	if(!emptyStr){
+		console.log(emptyStr,"--->",false);
+	}
+	if(!undefinedVar){
+		console.log(undefinedVar,"--->",false);
+	}
+	
+	//truthy한값(모든데이터)
+	let zeroNumberStr='0'
+	let boolStr='false';
+	let spacestr='';
+	let number=123123;
+	let str='김경호'
+	
+		if(zeroNumberStr)
+			console.log(zeroNumberStr,"--->",true);
+		
+		if(boolStr)
+			console.log(boolStr,"--->",true);
+		
+		if(spacestr)
+			console.log(spacestr,"--->",true);
+		
+		if(number)
+			console.log(number,"--->",true);
+		
+		if(str)
+			console.log(str,"--->",true);
+		
+
+		console.log(!34);
+		if(34){
+			console.log(34,"--->",true);
+		}
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+

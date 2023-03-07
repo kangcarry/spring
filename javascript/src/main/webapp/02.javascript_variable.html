@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+		변수,상수,리터럴
+	*/
+	let a1='text1';
+	let a2="text2";
+	let b= 123;
+	let c= 12.456;
+	let d=true;
+	/*
+	전역에 선언된 var변수는 윈도우 속성으로 생성
+	전역에 선언된 var변수는 중복선언되어도 에러발생안함
+	
+	전역에 선언된 let변수는 윈도우 속성으로 생성되지않음
+	전역에 선언된 let변수는 중복선언되면 에러발생안함
+	*/
+	
+	const e='상수1';
+	const f=789;
+	//TypeError: Assignment to constant variable.
+	//e='상수1변경';
+	
+	console.log(a1);
+	console.log(a2);
+	console.log(b);
+	console.log(c);
+	console.log(d);
+	console.log(e);
+	console.log(f);
+	
+	let g=null;
+	let h;
+	console.log(g);
+	console.log(h);
+	/*********Object************/
+	/*
+		 Object객체생성
+			1. 생성자함수
+			2. JSON(JavasScript Object Notation) {,},[,]
+	*/
+	let o1 = new  Object();
+	let o2={};
+	console.log(o1.toString());
+	console.log(o2.toString());
+	/*********Array************/
+	/*
+		 Array 객체생성
+			1. 생성자함수
+			2. JSON(JavasScript Object Notation)
+	*/
+	let array1=new Array();
+	let array2=[];
+	console.log(array1.length);
+	console.log(array2.length);
+	/*****JSON을 사용한 객체(Object,Array)생성*******/
+	let nameArray=['KIM','LEE','PARK','CHOI','SIM'];
+	let scoreArray=[34,56,77,90,56];
+	let student={
+		"no":1,
+		"name":"KIM"
+	};
+	console.log(student);
+	console.log(student.no);
+	console.log(student.name);
+	let studentArray=[
+		{
+			"no":1,
+			"name":"KIM"	
+		},
+		{
+			"no":2,
+			"name":"LEE"
+		}
+	];
+	
+	/*
+		let :자바스트립트변수범위는 블록에의해서 생성된다.
+	*/
+	for(let i=0;i<nameArray.length;i++){
+		console.log(nameArray[i]+"-->"+scoreArray[i]);
+	}
+	for(let i=0;i<studentArray.length;i++){
+		console.log(studentArray[i].no,studentArray[i].name)
+	}
+	console.log('----------------------undefined------------------');
+	if(h==undefined){
+		console.log("1. h 는 undefined 입니다. ")
+	}
+	if(typeof h =='undefined'){
+		console.log("2. h 는 undefined 입니다. ")
+	}
+	if(g==null){
+		console.log('g는 null입니다.')
+	}
+	console.log('-------------------type of------------------');
+	console.log(typeof a1);
+	console.log(typeof a1);
+	console.log(typeof b);
+	console.log(typeof c);
+	console.log(typeof d);
+	console.log(typeof e);
+	console.log(typeof f);
+	console.log(typeof g);
+	console.log(typeof h);
+	console.log(typeof o1);
+	console.log(typeof o2);
+	console.log(typeof array1);
+	console.log(typeof array2);
+	console.log("-------------- let 로선언된변수 재선언 ------------");
+	//let a1=1213;
+	console.log("-------------- const 로선언된변수 재선언 ------------");
+	//let e=false;	
+	
+	
+</script>
+</head>
+<body>
+<h1>javascript variable</h1><hr>
+</body>
+</html>
