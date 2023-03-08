@@ -1,7 +1,16 @@
 /*
 학생객체를 생성해서 반환해주는 <<< 함수 >>> 작성
 */
-
+    /*
+     생성자함수
+     */
+		/*
+		호출 new Student('xxx','KIM', 34,23,67)
+			1. Object객체생성({},new Object())
+			2. 생성된 Object객체(this)에 속성추가
+			3. 생성된 Object객체 반환
+		*/
+		
 
 /************prototype[JSON]******************/
 function Student(id,name,kor,eng,math){

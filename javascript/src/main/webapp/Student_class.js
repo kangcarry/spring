@@ -3,8 +3,8 @@
 */
 
 class Student{
-	
-	constructor(id,name,kor,eng,math){
+	//student 생성자
+	constructor(id,name,kor,eng,math){ 
 			this.id=id;
 			this.name=name;
 			this.kor=kor;
