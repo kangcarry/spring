@@ -4,34 +4,63 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-	
-	
+
+	//로드시에 이벤트등록
+	window.addEventListener('load',function(){
 		/*
 		window.onload 이벤트발생시점
 		   - DOM Tree 생성직후 렌더링전에호출
 		 */
 		/*******이벤트등록*********/
-		
+		document.getElementById('tweet')
+			.addEventListener('click',function(){
+				alert('상세보기');
+			});
+		document.getElementById('imageSpan')
+			.addEventListener('click',function(e){
+				alert('프로필보기')
+				e.stopPropagation(); //버블링 중지
+			});
 	    	
-		/*
+		
+			document.getElementById("mainp").addEventListener('click',function(e){
+				alert('main.jsp로 페이지기반요청');
+			});
+			/*
 	    	anchor클릭시
 	    	1.click event발생(o)
 	    	2.href에기술된 url로 page요청(o)
 	    	*/
-	   
-	    	/*
-	    	anchor클릭시
-	    	1.click event발생(o)
-	    	2.href에기술된 url로 page요청취소( X )[e.preventDefault();]
-	    	*/
 	    	
-		  /*
-	    	submit버튼클릭시
-	    	1.submit event발생(o)
-	    	2.action 에기술된 url로 page요청( x )
-	    	*/
+		    document.getElementById("maina").addEventListener('click',function(e){
+				alert('main.jsp로 페이지기반요청취소');
+				
+		    	/*
+		    	anchor클릭시
+		    	1.click event발생(o)
+		    	*/
+		    	e.preventDefault();
+		    	/*
+		    	2.href에기술된 url로 page요청취소( X )[e.preventDefault();]
+		    	*/
+		    	
+			});
+	   		
 	    
-	
+	    	
+	    	document.getElementById('f')
+	    		.addEventListener('submit',function(e){
+	    			
+	    			/*
+	    		    submit버튼클릭시
+	    		    1.submit event발생(o)
+	    		    2.action 에기술된 url로 page요청( x )
+	    		    */
+	    		    alert('submit버튼클릭시 join.jsp로 페이지요청취소');
+	    			console.log(e.target);
+	    			e.preventDefault();
+	    		})
+			
 	    	
 	/*
 	document.getElementById();
@@ -39,6 +68,7 @@
 	document.getElementsByTagName();
 	document.getElementsByName();
 	 */
+	});
 </script>
 </head>
 <body>

@@ -6,15 +6,21 @@
 <script type="text/javascript" src="Student_class.js"></script>
 <script type="text/javascript">
 /****************학생객체배열****************/
-
-
+    const studentObject1 = new Student('xxx','KIM', 34,23,67);
+	const studentObject2 = new Student('yyy','LEE', 34,23,67);
+	const studentObject3 = new Student('zzz','SIM', 34,23,67);
+	const studentArray=[studentObject1,studentObject2,studentObject3];
 </script>
 </head>
 <body>
 <h1>class 를 사용한객체생성[es6(ecma2015)]</h1><hr>
 <script type="text/javascript">
 	document.write('--------------student 리스트---------------------<br>');
-	
+	for(let i=0;i<studentArray.length;i++){
+		studentArray[i].calculateTot();
+		studentArray[i].calculateAvg();
+		document.write(studentArray[i].toString()+"<br>");
+	}
 </script>
 </body>
 </html>
