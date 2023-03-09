@@ -1,8 +1,8 @@
 function ajaxRequest(method,url,params,callbackFunction){
-	let xhr=new XMLHttpRequest();
-	method = (method) ? method:'GET';
+	let xhr=new XMLHttpRequest(); 	//request초기화
+	method = (method) ? method:'GET';	//"GET,POST로 초기화"
 	method = (method!='GET'&& method!='POST')?'GET':method;
-	params = (params)? params:null;
+	params = (params)? params:null;	
 	url = (method=='GET'&& params!=null) ? url+"?"+params : url; 
 	
 	xhr.open(method,url,true);
@@ -11,5 +11,4 @@ function ajaxRequest(method,url,params,callbackFunction){
 		callbackFunction(xhr);
 	};
 	xhr.send((method=='POST')?params:null);
-	
 }
