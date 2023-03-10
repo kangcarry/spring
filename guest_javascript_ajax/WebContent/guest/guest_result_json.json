@@ -1,6 +1,5 @@
 {
 	"code":1,
-	"url":"guest_main",
 	"msg":"메세지",
 	"data":[
 				{
@@ -19,5 +18,6 @@
 				"guest_title":"방명록 사용법2",
 				"guest_content":"방명록처럼 사용하시면 됩니다2"
 				}
-			]
+			],
+			"url":"guest_main"
 }
