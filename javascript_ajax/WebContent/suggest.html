@@ -10,7 +10,7 @@
 		display: block;
 	}
 	a:hover{
-		background: #eee;
+		background: rgb(245,245,245);
 	}
 	.suggest{
 		position: absolute;
@@ -54,7 +54,6 @@
 	function select(keyword){
 		document.search.keyword.value=keyword;
 	}
-	
 	function showSuggestDiv(show){
 		if(show){
 			document.getElementById("suggest").style.display='block';
@@ -67,16 +66,17 @@
 		showSuggestDiv(false);
 		
 		document.search.keyword.addEventListener('focusout',function(){
-			/**0.02초후에 showSuggestDiv(false)실행**/
+			/***0.2초후에 showSuggestDiv(false)실행**/
 			setTimeout(function(){
 				showSuggestDiv(false);
 			},200);
-		});
+		}); 
 		document.search.keyword.addEventListener('focusin',function(){
 			sendKeyword();
 		});
 		
 	}
+	
 </script>
 </head>
 <body>
@@ -87,7 +87,7 @@
 	<input 	type="text" name="keyword" onkeyup="sendKeyword();"> &nbsp;
 	<input type="submit" value="검색">
 	<div id="suggest" class="suggest">
-		<div id="suggestList">
+		<div id="suggestList" style="font-size: smaller;">
 			<!-- 
 			<a href="">자바라</a>	
 			<a href="">자바바</a>	

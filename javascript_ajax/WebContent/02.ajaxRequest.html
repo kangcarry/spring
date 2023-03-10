@@ -19,7 +19,6 @@
 			1. XMLHttpRequest객체생성
 			*/
 			xhr=new XMLHttpRequest();
-			
 			/*
 			2. 요청속성설정 
 			*/
@@ -33,6 +32,15 @@
 			*/
 			xhr.send(null);
 			
+			/*
+			fetch('02.ajaxRequest.jsp?id='+idStr)
+			.then(function(response){
+				return response.text();
+			})
+			.then(function(data){
+				console.log(data);
+			});
+			*/
 			
 	}	
 	/*
@@ -41,6 +49,7 @@
 	function responseCallBack(){
 		let responseStr = xhr.responseText;
 		document.getElementById('msg').innerHTML=responseStr;
+		
 	}
 </script>
 </head>
