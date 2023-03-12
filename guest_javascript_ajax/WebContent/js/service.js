@@ -1,5 +1,5 @@
 /**
- * 
+ * 이 함수를 호출하면 AJAX 요청을 보내고, 요청이 완료되면 받아온 JSON 데이터를 반환합니다.
  */
  import {ajaxRequest} from './request.js'; 
  

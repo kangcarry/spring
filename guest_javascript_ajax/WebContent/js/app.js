@@ -17,11 +17,11 @@ menuGuestHome.addEventListener('click',function(e){
 	
 });
 menuGuestList.addEventListener('click',function(e){
-	let jsonResult = 
+	let jsonResult = 	//서버에서 JSON 데이터 받아옴
 				Service.guestService('GET',
 										URL.GUEST_LIST_URL,
 										'');
-	View.render("#guest-list-template",jsonResult,"#content");
+	View.render("#guest-list-template",jsonResult,"#content");	//템플릿 콘텐트로 렌더링
 	e.preventDefault();
 });
 menuGuestWriteForm.addEventListener('click',function(){
