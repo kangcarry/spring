@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html >
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -18,9 +18,32 @@
 		$.grep();
 		*/
 		
+		let filterNameArray=$.grep(memberNameArray,function(name,index){
+											return name.startsWith('k');		// array 중 true만 대입
+											});			
 		
 		
+		//let filterNameArray=$.grep(memberNameArray,(name,index)=>name.startsWith('k'));		//위 코드 축소 (return 문 생략)		
 		
+		
+		$.each(filterNameArray,function(i,name){	//array에 length만큼 반복출력
+ 			$('.selected1').append(name+" ");
+		});
+		
+		let filterMemberArray = $.grep(memberArray,(member,index)=>member.address=='경기미');	//짧게
+		
+		//let filterMemberArray = $.grep(memberArray,function(member,index){	//길게
+		//									return member.address=='경기미';
+		//									});
+		
+		$.each(filterMemberArray,(index,member)=>{
+					$('.selected').append(`[${member.id},${member.name},${member.address}]`);
+				}
+		);
+		
+		$.each(filterMemberArray,function(index,member){
+			$('.selected').append(`[${member.id},${member.name},${member.address}]`);
+		});
 		
 		
 		

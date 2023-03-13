@@ -40,8 +40,45 @@ td{
 		※ LVHA-순서(:link — :visited — :hover — :active)
 
 */
+	a{
+		text-decoration: none;
+		cursor: defalt;
+	}
 
+	a:link {
+		color: gray;
+	}
+	a:visited {
+		color: maroon;
+	}
+	a:hover {
+		color:pink;
+		background: cyan;
+		cursor: progress;
+	}
+	a:active {
+		color:cyan;
+		font-size:30pt;
+		background: white;
+	}
+	h2::first-letter {
+		font-size: 50pt;
+		color:red;
+	}
+	
+	tr:first-child {	
+		background: green;
+	}
 
+	td:first-child {	
+		background: pink;
+	}
+
+	td:last-child {	
+		font-size: 30px;
+		color: blue;
+	}
+	
 </style>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
