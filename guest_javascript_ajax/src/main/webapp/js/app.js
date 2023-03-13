@@ -96,8 +96,8 @@ document.addEventListener('click',function(e){
 			return false;
 		}
 		const f = document.querySelector('#guest_write_form');
-		const formData = new FormData(f);
-		const params=new URLSearchParams(formData).toString();
+		const formData = new FormData(f);	//key value로 데이터 저장
+		const params=new URLSearchParams(formData).toString();	//query stiring으로변환
 		//console.log(params);
 		
 		const jsonResult=
