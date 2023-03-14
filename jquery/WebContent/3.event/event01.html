@@ -27,7 +27,7 @@ td {
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-	
+		
 		/*
 		var tdElementNodeList = document.getElementsByTagName("td")
 		for (var i = 0; i < tdElementNodeList.length; i++) {
@@ -40,12 +40,14 @@ td {
 			});
 		}
 		*/
-		
-		
-		
-		
-		
-		
+		$('td').click(function(e){ 
+			console.log("event[표준객체]:"+e);
+				console.log("e.target[표준객체]:"+e.target);
+				console.log(e.target.firstChild.nodeValue);	//td는 자식의 값으로 접근해야한다
+				console.log("this   :"+this);	//e.target ==this (표준 객체)
+				console.log(this.firstChild.nodeValue);
+				console.log($(this).text()); // $(this)제이쿼리 객체
+		})
 		
 	});
 </script>

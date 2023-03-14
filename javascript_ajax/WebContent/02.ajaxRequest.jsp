@@ -10,6 +10,7 @@
 	}else{
 		msg="사용불가능";
 	}
+	
 	//Thread.sleep(1000);
 %>
 <%=msg%>

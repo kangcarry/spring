@@ -62,12 +62,21 @@ td {
 				<td>#25</td>
 			</tr>
 		</table>
-		
-		
 	</div>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
-	
+	$('td').css('border','1px dotted red');
+	$('td:first').css('color','pink');	//첫번째 행의 첫번째 칸
+	$('td:first-child').css('background','green'); //첫번째 행
+	$('td:last').css('color','red');
+	$('td:last-child').css('background','gold');
+	$('td:nth-child(2)').css('background','aliceblue');
+	/*
+	#account > a
+	#account > div > a
+	#goodsItem_product_Z01002 > div:nth-child(2) > a:nth-child(5)
+	body > div > table > tbody > tr:nth-child(2) > td:nth-child(5)  
+	*/
 </script>	
 </body>
 </html>

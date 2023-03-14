@@ -65,7 +65,7 @@ td{
 		font-size: 50pt;
 		color:red;
 	}
-	
+	/*
 	tr:first-child {	
 		background: green;
 	}
@@ -78,14 +78,21 @@ td{
 		font-size: 30px;
 		color: blue;
 	}
-	
+	*/
 </style>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
-	$(function(){
-		
-		
+	window.$(function(){
+		$('tr').css('background','white');
+		$('tr:eq(0)').css('background','green');
+		$('td:eq(39)').css('background','pink');
+		$('tr:eq(0) > td:eq(9)').css('background','orange'); //1번째 행 10번째열 선택
+		$('tr:eq(1) > td:gt(2)').css('background','gold'); //1행중에 4열부터 선택
+		$('tr:eq(2) > td:odd').css('background','yellow'); //index 홀수선택
+		$('tr:eq(2) > td:even').css('background','purple'); //index 짝수
+		$('tr:eq(3) > td:first').css('background','blue'); //첫번째
+		$('tr:eq(3) > td:last').css('background','red'); //마지막
 		
 		
 	});
