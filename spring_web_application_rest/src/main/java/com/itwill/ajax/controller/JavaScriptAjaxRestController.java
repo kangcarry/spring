@@ -53,19 +53,57 @@ public class JavaScriptAjaxRestController {
 
 	@GetMapping("/05.newsTitlesHTML") 
 	public String newsTitlesHTML() {
-		return null;
+		StringBuffer sb=new StringBuffer();
+		sb.append("<ul>");
+		int count = (int)(Math.random()*getNewsList().size())+1;
+		for(int i=0;i<count;i++){
+			News news=getNewsList().get(i);
+			sb.append("<li>"+news.getTitle()+"["+news.getCompany()+"-"+news.getDate()+"][HTML]</li>");
+		}
+		sb.append("</ul>");
+		return sb.toString();
 	}
 
-	
-	public Map<String, Object> newsTitlesJSON() {
-		
-		return null;
+	@GetMapping("/08.newsTitlesJSON")
+	public String newsTitlesJSON() {
+		List<News> newsList=this.getNewsList();
+		int count = (int)(Math.random()*newsList.size())+1;
+		StringBuffer sb=new StringBuffer();
+		sb.append("{");
+		sb.append("\"code\":"+1+",");
+		sb.append("\"data\": [");
+		for(int i=0;i<count;i++){
+			sb.append("{\"newsTitle\":\""+newsList.get(i).getTitle()+
+				      "\",\"company\":\""+newsList.get(i).getCompany()+
+				      "\",\"date\":\""+newsList.get(i).getDate()+"\"}");
+			if(i!=count-1)
+				sb.append(",");
+		}
+		sb.append("]");
+		sb.append("}");
+		return sb.toString();
 	}
 
-	
+	@GetMapping("/suggest")
 	public Map<String,Object> suggest(@RequestParam(value = "keyword",defaultValue = "") String keyword ) {
+		List keywordList = this.search(keyword);
 		
-		return null;
+		StringBuffer stringBuffer=new StringBuffer();
+		stringBuffer.append("{");
+		stringBuffer.append("\"count\":"+keywordList.size());
+		stringBuffer.append(",");
+		stringBuffer.append("\"data\":[");
+		for(int i=0;i<keywordList.size();i++){
+			stringBuffer.append("\""+keywordList.get(i)+"\"");
+			if(i < keywordList.size()-1){
+				stringBuffer.append(",");
+			}
+		}
+		stringBuffer.append("]");
+		stringBuffer.append("}");
+		Map<String,Object> strMap = new HashMap<String,Object>();
+		strMap.put(keyword, stringBuffer.toString());
+		return strMap;
 	}
 
 	public List<News> getNewsList() {
