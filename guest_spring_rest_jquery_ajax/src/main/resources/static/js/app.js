@@ -33,7 +33,7 @@ $('#menu_guest_home').click(function(e){
 });
 /****guest list******/
 $(document).on('click','#menu_guest_list,#btn_guest_list',function(e){
-	
+	 
 	let url='guest';
 	let method='GET';
 	let contentType="application/json;charset=UTF-8";
@@ -53,9 +53,20 @@ $(document).on('click','#menu_guest_list,#btn_guest_list',function(e){
 });
 /****guest detail******/
 $(document).on('click','.guest_item_a',function(e){
-
-	View.render('#guest-detail-template',{});
-	
+	let guest_no = e.target.getAttribute('guest_no');
+	Request.ajaxRequest('guest/'+guest_no,
+						'GET',
+						"application/json;charset=UTF-8",
+						{},
+						function(resultJson){
+							if(resultJson.code==1){
+								View.render('#guest-detail-template',resultJson,'#content');
+							}else{
+								alert(resultJson.msg);
+							}
+						},
+						true //비동기
+);
 	e.preventDefault();
 });
 /****guest write form******/

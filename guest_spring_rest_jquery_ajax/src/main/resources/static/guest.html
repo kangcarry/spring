@@ -138,56 +138,56 @@
 					</tbody>
 				</table> <!-- view Form  -->
 				<form name="f" method="post">
-					<input type="hidden" name="guest_no" value="3">
+					{{#data}}
+					<input type="hidden" name="guest_no" value="{{guest_no}}">
 					<table border="0" cellpadding="0" cellspacing="1" width="590"
 						bgcolor="BBBBBB">
-						{{#data}}
 						<tbody>
 							<tr>
 								<td width="100" align="center" bgcolor="E6ECDE" height="22">번호</td>
 								<td width="490" bgcolor="ffffff" align="left"
-									style="padding-left: 10px">3</td>
+									style="padding-left: 10px">{{guest_no}}</td>
 							</tr>
 							<tr>
 								<td width="100" align="center" bgcolor="E6ECDE" height="22">이름</td>
 								<td width="490" bgcolor="ffffff" align="left"
-									style="padding-left: 10px">김경호3333</td>
+									style="padding-left: 10px">{{guest_name}}</td>
 							</tr>
 							<tr>
 								<td width="100" align="center" bgcolor="E6ECDE" height="22">날짜</td>
 								<td width="490" bgcolor="ffffff" align="left"
-									style="padding-left: 10px">2022-07-22</td>
+									style="padding-left: 10px">{{guest_date}}</td>
 							</tr>
 							<tr>
 								<td width="100" align="center" bgcolor="E6ECDE" height="22">홈페이지</td>
 								<td width="490" bgcolor="ffffff" align="left"
-									style="padding-left: 10px">http://</td>
+									style="padding-left: 10px">{{guest_homepage}}</td>
 							</tr>
 							<tr>
 								<td width="100" align="center" bgcolor="E6ECDE" height="22">제목</td>
 								<td width="490" bgcolor="ffffff" align="left"
-									style="padding-left: 10px">방명록 사용법 [수정]gfhf</td>
+									style="padding-left: 10px">{{guest_title}}</td>
 							</tr>
 							<tr>
 								<td width="100" align="center" bgcolor="E6ECDE" height="110">내용</td>
 								<td width="490" bgcolor="ffffff" align="left"
-									style="padding-left: 10px">방명록처럼 사용하시면 됩니다람쥐~~~</td>
+									style="padding-left: 10px">{{guest_content}}</td>
 							</tr>
 						</tbody>
-					{{/data}}
 					</table>
 				</form> <br>
 				<table width="590" border="0" cellpadding="0" cellspacing="0">
 					<tbody>
 						<tr>
 							<td align="center"><input type="button" value="수정"
-								id="btn_guest_modify_form" guest_no="1">
+								id="btn_guest_modify_form" guest_no="{{guest_no}}">
 								&nbsp; <input type="button" value="삭제"
-								id="btn_guest_remove_action" guest_no="1">
+								id="btn_guest_remove_action" guest_no="{{guest_no}}">
 								&nbsp; <input type="button" value="목록" id="btn_guest_list">
 							</td>
 						</tr>
 					</tbody>
+					{{/data}}
 				</table>
 			</td>
 		</tr>
