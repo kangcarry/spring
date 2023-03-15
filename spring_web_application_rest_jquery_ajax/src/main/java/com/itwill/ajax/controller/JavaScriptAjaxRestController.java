@@ -32,6 +32,7 @@ public class JavaScriptAjaxRestController {
 		}else{
 			msg="사용불가능";
 		}
+		Thread.sleep(1000);
 		return msg;
 	}
 
@@ -43,6 +44,7 @@ public class JavaScriptAjaxRestController {
 		}else{
 			msg="사용불가능";
 		}
+		Thread.sleep(1000);
 		return msg;
 	}
 
