@@ -82,6 +82,7 @@ public class GuestRestController {
 			guestService.insertGuest(guest);
 			code=1;
 			msg="성공";
+			guest = guestService.selectByNo(guest.guest_no);
 			data.add(guest);
 		}catch(Exception e) {
 			code=2;
@@ -122,21 +123,21 @@ public class GuestRestController {
 		
 		return resultMap;
 	}
-	@DeleteMapping(value="/guest/{id}/{guest_no}")
-	public Map<String,Object> guest_remove_action(@PathVariable(value="guest_no")int no) throws Exception{
+	@DeleteMapping(value="/guest/{guest_no}")
+	public Map<String,Object> guest_remove_action(@PathVariable(value="guest_no")int guest_no) throws Exception{
 		Map<String,Object> resultMap= new HashMap<String,Object>();
 		int code=1;
 		String msg = "성공";
 		List<Guest> data = new ArrayList<Guest>();
 		
 		try {
-			guestService.deleteGuest(no);
+			guestService.deleteGuest(guest_no);
 			code=1;
 			msg = "";
 		}catch(Exception e){
 			code=2;
 			Guest failGuest = new Guest();
-			failGuest.setGuest_no(no);
+			failGuest.setGuest_no(guest_no);
 			data.add(failGuest);
 			msg="방명록삭제실패";
 			e.printStackTrace();

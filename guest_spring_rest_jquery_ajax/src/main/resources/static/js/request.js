@@ -11,6 +11,5 @@ function ajaxRequest(url,method,
 		},
 		async:async
 	});
-	
 }
 export{ ajaxRequest};
