@@ -1,17 +1,16 @@
---DROP TABLE users CASCADE CONSTRAINTS;
-
---CREATE TABLE users(
-		--id                            		NUMBER(10)		 NULL 		 PRIMARY KEY,
-		--name                          		VARCHAR2(100)		 NULL ,
-		--email                         		VARCHAR2(100)		 NULL ,
-		--created_at                    		DATE		 NULL ,
-		--updated_at                    		DATE		 NULL 
---);
-
-DROP SEQUENCE users_id_SEQ;
-
-CREATE SEQUENCE users_id_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
-
+ drop sequence users_id_seq;
+ create sequence users_id_seq start with 1 increment by  1;
+ 
+ drop table users;
+ 
+ create table users (
+        id number(19,0) not null,
+        created_at timestamp not null,
+        email varchar2(255 char),
+        name varchar2(255 char) not null,
+        updated_at timestamp not null,
+        primary key (id)
+  );
 
 
 

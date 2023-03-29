@@ -18,37 +18,36 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+import lombok.ToString;
 @RequiredArgsConstructor
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
-@Entity(name = "users")//users로하는이유??
+@ToString
+@Entity(name = "users")
 @SequenceGenerator(	name = "users_id_SEQ_gen",
-sequenceName ="users_id_SEQ",
-initialValue = 1 ,
-allocationSize = 1)
+					sequenceName ="users_id_SEQ",
+					initialValue = 1 ,
+					allocationSize = 1)
 public class User {
 	@Id
-	
-	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "user_id_SEQ_gen")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "users_id_SEQ_gen")
 	@Column(name = "id")
-	private Long id;//jpa에서 pk를 int로 사용할수없다
+	private Long id;
 	
 	@NonNull
-	@Column(nullable = false)//not null
-	private String name;
-	
-	@NonNull //lombok 라이브러리
 	@Column(nullable = false)
+	private String name;
+	@NonNull
 	private String email;
 	
-	
 	@NonNull
-	@Column(nullable = false,updatable = false)  //entity 라이브러리
-	private Date createdAt;
+	@Column(nullable = false,updatable = false)
+	private LocalDateTime createdAt;
 	
 	@NonNull
 	@Column(nullable = false)
 	private LocalDateTime updatedAt;
+	
 }
