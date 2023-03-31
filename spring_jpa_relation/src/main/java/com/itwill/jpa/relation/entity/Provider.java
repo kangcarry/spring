@@ -3,6 +3,7 @@ package com.itwill.jpa.relation.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -24,7 +25,7 @@ import lombok.ToString;
 @ToString(callSuper = true )
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
-//@RequiredArgsConstructor
+@RequiredArgsConstructor//nonnull만 생성자에 기입가능
 @Entity
 @Table(name = "provider")
 public class Provider extends BaseEntity{
@@ -44,6 +45,16 @@ public class Provider extends BaseEntity{
 		연관 관계에 있는 Entity 들 모두 가져온다 → Eager 전략
 		연관 관계에 있는 Entity 가져오지 않고, getter로 접근할 때 가져온다 → Lazy 전략
 	 */
+	
+	/*******************************************************
 	@OneToMany(mappedBy = "provider",fetch = FetchType.EAGER)
 	List<Product> productList = new ArrayList<Product>();
+	********************************************************/
+	
+	/**********************************************************/
+	@OneToMany(mappedBy = "provider",
+				cascade = CascadeType.PERSIST , //부모가 생성될 때 자식도 함께 생성되야한다는설정 (영속성)
+				fetch = FetchType.EAGER)
+	List<Product> productList = new ArrayList<Product>();
+	/******************************************************/
 }
