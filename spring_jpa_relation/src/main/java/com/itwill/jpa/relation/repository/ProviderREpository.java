@@ -1,3 +1,4 @@
+
 package com.itwill.jpa.relation.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;

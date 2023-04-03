@@ -50,11 +50,23 @@ public class Provider extends BaseEntity{
 	@OneToMany(mappedBy = "provider",fetch = FetchType.EAGER)
 	List<Product> productList = new ArrayList<Product>();
 	********************************************************/
-	
-	/**********************************************************/
-	@OneToMany(mappedBy = "provider",
-				cascade = CascadeType.PERSIST , //부모가 생성될 때 자식도 함께 생성되야한다는설정 (영속성)
+	/******case1 CascadeType.PERSIST*************************************
+	@OneToMany(	mappedBy = "provider",
+				cascade = CascadeType.PERSIST ,//부모생성시 자식도 생성
 				fetch = FetchType.EAGER)
-	List<Product> productList = new ArrayList<Product>();
-	/******************************************************/
+	List<Product> productList=new ArrayList<>();
+	*******************************************************
+	/******case2 CascadeType.ALL[ CascadeType.REMOVE,CascadeType.PERSIST]*
+	@OneToMany(	mappedBy = "provider",
+			cascade = CascadeType.ALL, //부모삭제시 자식도 삭제
+			fetch = FetchType.EAGER)
+	List<Product> productList=new ArrayList<>();
+	********************************************************/
+	/******case3 orphanRemoval = true***********************/
+	@OneToMany(	mappedBy = "provider",
+			cascade = CascadeType.ALL,
+			orphanRemoval = true, //부모가 없는 자식 삭제
+			fetch = FetchType.EAGER)
+	List<Product> productList=new ArrayList<>();
+	/********************************************************/
 }

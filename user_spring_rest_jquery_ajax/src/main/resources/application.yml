@@ -1,5 +1,5 @@
 server:
-  port: 80
+  port: 8000
   servlet.context-path: /user_spring_rest_jquery_ajax
   servlet: 
     encoding: 
@@ -11,10 +11,16 @@ spring:
   datasource:
     url: jdbc:oracle:thin:@182.237.126.19:1521:XE
     username: jdeveloper00
-    password: jdeveloper00   
+    password: jdeveloper00  
   mvc:
     pathmatch: 
       matching-strategy: ANT_PATH_MATCHER  
+  ###################thymeleaf###############      
+  thymeleaf: 
+    prefix: classpath:templates/
+    suffix: .html
+    check-template-location: true
+    mode: HTML
       
 logging:
   level:
