@@ -1,0 +1,10 @@
+server:
+  port: 9050
+#Using generated security password: 483fc45d-035f-40e1-8b33-f8e9b1490474
+
+spring:
+  security:
+    user:
+      name: user1
+      password: 1111
+      roles: USER
