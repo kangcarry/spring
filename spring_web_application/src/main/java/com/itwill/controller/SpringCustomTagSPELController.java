@@ -16,7 +16,8 @@ import com.itwill.dto.Guest;
 public class SpringCustomTagSPELController {
 	@GetMapping("/jstl_fmt_i18n")
 	public String jstl_fmt_i18n() {
-		return "jstl_fmt_i18n";
+		return "forward:/WEB-INF/views/jstl_fmt_i18n.jsp";
+		
 	}
 	@GetMapping("/spring_customtag_spel")
 	public String spring_customtag_spel(HttpServletRequest request) {
@@ -38,23 +39,25 @@ public class SpringCustomTagSPELController {
 						"guard@gmail.com", "http://www.google.com",
 						"오늘은 수요일", "Spring Custom Tag,SPEL에 대해공부합니다."));
 		
-		return "spring_customtag_spel";
+		return "forward:/WEB-INF/views/spring_customtag_spel.jsp";
 	}
+	
+	
 	/************Spring JSP에서 국제화*******************
-	1. ApplicationConfig.java에 MessageSource빈설정
-		 public class ApplicationConfig {
-		@Bean("messageSource")
+	1. ApplicationConfig.java 에 MessageSource빈설정
+	
+	 	@Bean("messageSource")
 		public MessageSource messageSource() {
 			ResourceBundleMessageSource resourceBundleMessageSource=
 					new ResourceBundleMessageSource();
 			resourceBundleMessageSource.setBasenames("messages/messages","messages/user");
 			return resourceBundleMessageSource;
 		}
-	}
   	 *****************************************************/
 	
 	@RequestMapping("/spring_customtag_spel_i18n")
 	public String spring_customtag_spel_i18n() {
+		
 		return "spring_customtag_spel_i18n";
 	}
 	

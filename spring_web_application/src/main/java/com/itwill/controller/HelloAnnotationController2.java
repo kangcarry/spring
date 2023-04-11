@@ -11,8 +11,8 @@ public class HelloAnnotationController2 {
 	}
 	@RequestMapping("/hello2")
 	public String hello2(HttpServletRequest request) {
-		System.out.println("### HelloAnnotationController2.hello2()메소드 호출");
-		request.setAttribute("msg", "HeeloAnnotationController2 안녕");
+		System.out.println("### HelloAnnotationController2.hello2()메쏘드호출");
+		request.setAttribute("msg", "HelloAnnotationController2 안녕");
 		return "forward:/WEB-INF/views/hello2.jsp";
 	}
 	

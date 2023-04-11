@@ -59,7 +59,7 @@
 		<s:eval expression="${price0}+3455"/> == <s:eval expression="price0+3455"/>
 	</li>
 	<li>SPEL(SCOPE객체에 등록된 숫자변수(속성이름)):
-		<s:eval expression="price0 + price1/9 * 0.3254"/>
+		<s:eval expression="price0 + price1/9.0 * 0.3254"/> == ${price0 + price1/9.0 * 0.3254}
 	</li>
 	<li>SPEL(SCOPE객체에 등록된 문자열변수(속성이름)):
 		<s:eval expression="name0.replace('kim','sim').substring(4)"/>

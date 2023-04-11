@@ -17,6 +17,7 @@ public class HelloAnnotationMultiRequestMappingController {
 	public String hello5() {
 		return "forward:/WEB-INF/views/hello5.jsp";
 	}
+	
 	@RequestMapping("/hello_redirect_servlet")
 	public String hello_redirect_servlet() {
 		return "redirect:hello_redirected_servlet";
@@ -25,6 +26,7 @@ public class HelloAnnotationMultiRequestMappingController {
 	public String hello_redirected_servlet() {
 		return "forward:/WEB-INF/views/hello_redirected_servlet.jsp";
 	}
+	
 	@RequestMapping("/hello_servlet_forward")
 	public String hello_servlet_forward() {
 		return "forward:hello_servlet_forwarded";
@@ -35,10 +37,13 @@ public class HelloAnnotationMultiRequestMappingController {
 		return "forward:/WEB-INF/views/hello_servlet_forwarded.jsp";
 	}
 	
+	
 	@RequestMapping("/hello_redirect_jsp")
-	public String hello_redirect_jsp() {
+	public String hello_redierct_jsp() {
 		return "redirect:hello_redirected.jsp";
 	}
+	
+	
 }
 
 

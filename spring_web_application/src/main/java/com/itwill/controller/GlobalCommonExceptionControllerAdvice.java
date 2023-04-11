@@ -10,14 +10,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class GlobalCommonExceptionControllerAdvice {
 	@ExceptionHandler(Exception.class)
 	public String handle_exception(Exception e) {
-		return "global_error_result";	
+		return "global_error_result";
 	}
-	
 	@ExceptionHandler(RuntimeException.class)
 	public String handle_runtime_exception(RuntimeException e) {
-		return "global_error_result";	
+		return "global_error_result";
 	}
-	
-	
-	
 }

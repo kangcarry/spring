@@ -7,9 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>user/view.jsp</h1>
+<h1>user/view.jsp</h1><hr>
 <ol>
-
+	<li>KIM</li>
 </ol>
 </body>
 </html>

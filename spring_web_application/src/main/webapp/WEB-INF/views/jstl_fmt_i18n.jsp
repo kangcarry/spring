@@ -5,6 +5,7 @@
 	request.setAttribute("id", "guard");
 	request.setAttribute("pass", "1111");
 	request.setAttribute("name", "가아드");
+
 %>
 <%-- 1.Locale객체설정(JSTL)--%>  
 <fmt:setLocale value="${pageContext.request.locale.language}"/>

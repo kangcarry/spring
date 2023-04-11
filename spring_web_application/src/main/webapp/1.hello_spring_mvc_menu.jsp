@@ -12,7 +12,7 @@
 		<h1>스프링Controller[@Controller]</h1><hr/>
 		<a href='./'>메인메뉴</a>
 		<ol>
-			<li><a href='hello'>hello.do</a></li>
+			<li><a href='hello'>hello</a></li>
 			<li><a href='hello1'>hello1[annotation]</a></li>
 			<li><a href='hello2'>hello2[annotation]</a></li>
 			<li>HelloAnnotationMultiRequestMappaingController 객체의 메쏘드여러개매핑</li>
